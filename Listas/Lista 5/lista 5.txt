@@ -1,0 +1,322 @@
+ -- Exercicio 1
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+	int mat1[4][4];
+	int mat2[4][4];
+
+	srand (time(NULL));
+
+	for (int i = 0; i < 4; ++i)
+	{
+		for (int j = 0; j < 4; ++j)
+		{
+			//scanf("%d", &mat[i][j]);
+			mat1[i][j] = (rand()/(double)RAND_MAX)*50;//duas formas de funcionar
+			//printf("%d\n", mat1[i][j]);
+			mat2[i][j] = rand() % 50;//duas formas de funcionar
+		}
+	}	
+
+	for (int i = 0; i < 4; ++i)
+	{
+		for (int j = 0; j < 4; ++j)
+		{
+			mat1[i][j] += mat2[i][j];
+			printf(" %d ", mat1[i][j]);
+		}
+		printf("\n");
+	}
+
+
+	return 0;
+}
+
+
+
+-- Exercicio 2
+
+#include <stdio.h>
+#include <stdlib.h>
+#define TAMANHO 3
+
+
+void imprimi_matriz(int matriz[TAMANHO][TAMANHO])
+{
+	printf("\n");
+	for (int i = 0; i < TAMANHO; ++i)
+	{
+		for (int j = 0; j < TAMANHO; ++j)
+		{
+			printf(" %d ",matriz[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+	return;
+}
+
+
+
+int main(void)
+{
+	int mat1[TAMANHO][TAMANHO];
+	int mat2[TAMANHO][TAMANHO];
+	int mult[TAMANHO][TAMANHO];
+	int soma = 0;
+
+	srand(time(NULL));
+
+	for (int i = 0; i < TAMANHO; ++i)
+	{
+		for (int j = 0; j < TAMANHO; ++j)
+		{
+			mat1[i][j] = rand() % 10;
+			mat2[i][j] = rand() % 10;
+		}
+	}
+//imprimir tab 1
+
+	imprimi_matriz(mat1);
+
+//imprimir tab 2
+	
+	imprimi_matriz(mat2);
+
+	printf("\n");
+
+	for (int i = 0; i < TAMANHO; ++i)
+	{
+		for (int j = 0; j < TAMANHO; ++j)
+		{
+			for(int k = 0; k < TAMANHO; ++k)
+			{
+				soma += mat1[0][j]*mat2[j][i];
+			}		
+			mult[i][j] = soma;
+			soma = 0;
+		}	
+	}
+
+//imprimir mult
+
+	imprimi_matriz(mult);
+
+	return 0;
+}
+
+
+
+-- Exercicio 3
+
+
+
+-- Exercicio 4
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+	int mat[5][8] = {0};
+	int menor = 0;
+	int linha = 0;
+	int coluna = 0;
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 5; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			mat[i][j] = rand() % 100;
+		}
+	}
+
+	menor = mat[0][0];
+
+	for (int i = 0; i < 5; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			if (menor > mat[i][j])
+			{
+				menor = mat[i][j];
+				linha = i;
+				coluna = j;
+			}
+		}
+	}
+
+	printf("O menor numero é: %d\n", menor);
+	printf("Na posição [%d][%d]\n", linha, coluna);
+
+	return 0;
+}
+
+
+
+-- Exercicio 5
+
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 5
+
+int main(void)
+{
+	int mat[5][5];
+	int soma = 0;
+
+	srand(time(NULL));
+
+	for (int i = 0; i < TAM; ++i)
+	{
+		for (int j = 0; j < TAM; ++j)
+		{
+			mat[i][j] = rand() % 10;
+			
+
+			if (i == j)
+			{
+				soma += mat[i][j];
+			}
+		}
+	}
+
+	printf("As somas das diagonais é: %d\n", soma);
+
+
+	return 0;
+}
+
+
+-- Exericio 6
+
+#include <stdio.h>
+#include <stdlib.h>
+#define TAMANHO 3
+
+
+void imprimi_matriz(int matriz[TAMANHO][TAMANHO])
+{
+	printf("\n");
+	for (int i = 0; i < TAMANHO; ++i)
+	{
+		for (int j = 0; j < TAMANHO; ++j)
+		{
+			printf(" %d ",matriz[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+	return;
+}
+
+int main(void)
+{
+	int mat[TAMANHO][TAMANHO];
+	int somalinas[3] = {0};
+	int somacolunas[3] = {0};
+
+	srand(time(NULL));
+
+	for (int i = 0; i < TAMANHO; ++i)
+	{
+		for (int j = 0; j < TAMANHO; ++j)
+		{
+			mat[i][j] = rand() % 5;
+		}
+	}
+
+	for (int i = 0; i < TAMANHO; ++i)
+	{
+			somalinas[0] += mat[0][i];
+			somalinas[1] += mat[1][i];
+			somalinas[2] += mat[2][i];
+
+			somacolunas[0] += mat[i][0];
+			somacolunas[1] += mat[i][1];
+			somacolunas[2] += mat[i][2];
+	}
+
+	printf("Matriz\n");
+
+	imprimi_matriz(mat);
+
+	for (int i = 0; i < 3; ++i)
+	{
+		printf("Soma Linha %d: %d\n",i+1, somalinas[i]);
+	}
+
+	printf("\n");
+
+	for (int i = 0; i < 3; ++i)
+	{
+		printf("Soma Coluna %d: %d\n", i+1, somacolunas[i]);
+	}
+
+	return 0;
+}
+
+
+
+-- Exercicio 7
+
+#include <stdio.h>
+#include <stdlib.h>
+
+    
+int simetrica(int a[3][3], int n)
+{ 
+	int sim = 1;
+
+	int i, j;
+ 
+    while (sim && i < n)
+    {
+    	j = 0;
+        while (sim && j < i)
+        {
+        	sim = a[i][j] == a[j][i];
+            j = j + 1;
+        }
+        
+        i = i + 1;
+      
+    }
+
+       return sim;
+}
+   
+int main(void)
+{
+    int mat[3][3] = {0};
+
+    srand(time(NULL));
+    
+    for (int i = 0; i < 3; ++i)
+    {
+       	for (int j = 0; j < 3; ++j)
+       	{
+       		mat[i][j] = rand() % 10;
+       	}
+    }	
+
+    if (simetrica(mat, 3)) 
+    {
+    	printf("A matriz é simetrica\n");
+    }
+    else
+   	{
+    	printf("A matriz nao é simetrica\n");
+    }
+    
+   	return 0;
+}
+
+
+-- Exercicio 8
+

@@ -1,0 +1,1563 @@
+
+ << LISTA VETORES>>
+
+-- Exercicio 1
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int nums[6] = {0};
+
+	printf("Entre com o numero 1: ");
+	scanf("%d", &nums[0]);
+
+	printf("Entre com o numero 2: ");
+	scanf("%d", &nums[1]);
+
+	printf("Entre com o numero 3: ");
+	scanf("%d", &nums[2]);
+
+	printf("Entre com o numero 4: ");
+	scanf("%d", &nums[3]);
+
+    printf("Entre com o numero 5: ");
+	scanf("%d", &nums[4]);
+
+	printf("Entre com o numero 6: ");
+	scanf("%d", &nums[5]);
+
+	printf("Os valores lidos sao: %d %d %d %d %d %d \n", nums[0], nums[1], nums[2], nums[3], nums[4], nums[5]);
+	return 0;
+}
+
+
+-- Exercicio 2
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int nums[6] = {0};
+	int cont = 1;
+	for (int i = 0; i < 6; i++)
+	{
+		printf("Entre com o numero %d: ", cont++);
+		scanf("%d", &nums[i]);
+	}
+
+	printf("Os valores lidos sao: ");
+
+	for (int i = 0; i < 6; ++i)
+	{
+		printf("%d ", nums[i]);
+	}
+
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 3
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+
+	int nums[6] = {0};
+	int cont = 1;
+	for (int i = 0; i < 6; i++)
+	{
+		printf("Entre com o numero %d: ", cont++);
+		scanf("%d", &nums[i]);
+	}
+
+	printf("Os valores lidos sao: ");
+
+	for (int i = 5; i >= 0; --i)
+	{
+		printf("%d ", nums[i]);
+	}
+
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 4
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int nums[6] = {0};
+	int cont = 1;
+
+	for (int i = 0; i < 6; ++i)
+	{
+		printf("Entre com o valor %d: ", cont);
+		scanf("%d", &nums[i]);
+
+		if ((nums[i]%2) != 0)
+		{
+			printf("Erro valor invalido\n\n");
+			i--;
+		}
+		else
+		{
+			cont++;
+		}
+	}
+
+	printf("Os numeros digitados foram: ");
+
+	for (int i = 0; i < 6; ++i)
+	{
+		printf("%d ", nums[i]);
+	}
+
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 5
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int nums[5] = {0};
+	int cont = 1;
+	for (int i = 0; i < 5; i++)
+	{
+		printf("Entre com o numero %d: ", cont++);
+		scanf("%d", &nums[i]);
+	}
+
+	printf("Os valores lidos sao: ");
+
+	for (int i = 0; i < 5; ++i)
+	{
+		printf("%d ", nums[i]);
+	}
+
+	printf("\n");
+
+	int maior = nums[0];
+	int menor = nums[0];
+	float soma = 0;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		if (maior < nums[i])
+		{
+			maior = nums[i];
+		}
+		if (menor > nums[i])
+		{
+			menor = nums[i];
+		}
+		soma += nums[i];
+	}
+
+	soma = soma/5;
+
+	printf("O maior valor é: %d\n", maior);
+	printf("O menor valor é: %d\n", menor);
+	printf("A media é: %.2f\n", soma);
+	
+	return 0;
+}
+
+
+-- Exercicio 6
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+		int nums[5] = {0};
+	int cont = 1;
+	for (int i = 0; i < 5; i++)
+	{
+		printf("Entre com o numero %d: ", cont++);
+		scanf("%d", &nums[i]);
+	}
+
+	printf("Os valores lidos sao: ");
+
+	for (int i = 0; i < 5; ++i)
+	{
+		printf("%d ", nums[i]);
+	}
+
+	printf("\n");
+
+	int idmaior = 0;
+	int idmenor = 0;
+	int maior = nums[0];
+	int menor = nums[0];
+	float soma = 0;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		if (maior < nums[i])
+		{
+			maior = nums[i];
+			idmaior = i;
+		}
+		if (menor > nums[i])
+		{
+			menor = nums[i];
+			idmenor = i;
+		}
+		soma += nums[i];
+	}
+
+	soma = soma/5;
+
+	printf("O maior valor é: %d, localizado na posição %d do vetor\n", maior, idmaior);
+	printf("O menor valor é: %d, localizado na posição %d do vetor\n", menor, idmenor);
+	printf("A media é: %.2f\n", soma);
+	
+	return 0;
+}
+
+
+-- Exercicio 7
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// achar a maior, dividir todas pela maior, depois multiplicar por 100
+
+
+int main()
+{
+	float notas[5] = {0};
+	int cont = 1;
+	double conta = 0;
+
+	for (int i = 0; i < 5; ++i)// ler notas
+	{
+		printf("Entre com a nota do aluno %d: ", cont++);
+		scanf("%d",&notas[i]);
+	}
+
+	float maior = notas[0];
+
+	for (int i = 0; i < 5; ++i)//pegar a maior
+	{
+		if (maior < notas[i])
+		{
+			maior = notas[i];
+		}
+	}
+
+	for (int i = 0; i < 5; ++i)
+	{
+		conta = (notas[i] / maior);
+		notas[i] = (100 * conta);
+	}
+
+	printf("\n Notas normalizadas \n\n");
+
+	cont = 1;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		printf("A nota do aluno %d é: %.1f\n", cont++, notas[i]);
+	}
+
+
+	return 0;
+}
+
+
+-- Exercicio 8
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+	unsigned int soma_media_quadrada = 0;
+	float media = 0;
+	float notas[5];
+	int sub_media[5] = {0};
+	double despd = 0;
+	int j = 1;
+
+	for (int i = 0; i < 5; ++i) // ler as variaveis
+	{
+		printf("Entre com o valor %d: ", j++);
+		scanf("%f",&notas[i]); 
+	}
+
+	for (int i = 0; i < 5; ++i)
+	{
+		media += notas[i];
+	}
+
+	media = (media/5); // media pronta
+
+	for (int i = 0; i < 5; ++i)
+	{
+		sub_media[i] = (notas[i] - media);
+		sub_media[i] = pow(sub_media[i], 2);
+		soma_media_quadrada += sub_media[i];
+	}
+
+	despd = (soma_media_quadrada/4);
+
+	despd = sqrt(despd);
+
+	printf("A média é %.1f e o desvio padrão é %.15f\n", media, despd);
+
+	return 0;
+}
+
+
+-- Exercicio 9
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	double media = 0;
+	short int cont = 1;
+	float notas[0];
+	int numAlunos = 0;
+	printf("<<< Média de n alunos. Máximo 100 >>>\n\n");
+
+	printf("Entre com o número de alunos: ");
+	scanf("%d", &numAlunos);
+
+	if (numAlunos > 100)
+	{	
+		printf("ERRO!!! numero maximo de alunos é 100\n");
+	}
+	else if (numAlunos <= 100)
+	{
+
+		float notas[numAlunos];
+
+		for (int i = 0; i < numAlunos; ++i)
+		{
+			printf("Digite a nota do aluno %d: ", cont++);
+			scanf("%f", &notas[i]);
+			media += notas[i];
+		}
+		media = (media/numAlunos);
+
+		cont = 1;
+
+		printf("\nRelatório de notas\n");	
+
+		for (int i = 0; i < numAlunos; ++i)
+		{
+			printf("A nota do aluno %d é: %.0f\n", cont++, notas[i]);
+		}
+		printf("A média da turma é: %.1f\n", media);
+	}
+
+	return 0;
+}
+
+
+-- Exercicio 10
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int vet1[3] = {0};
+	int vet2[3] = {0};
+	int vet3[3] = {0};
+	int count = 1;
+
+	printf("<<<Subtração de vetores>>>\n\n");
+
+	for (int i = 0; i < 3; ++i)
+	{
+		printf("Digite o valor %d do vetor A: ", count);
+		scanf("%d", &vet1[i]);
+	}
+
+	printf("\n");
+
+	for (int i = 0; i < 3; ++i)
+	{
+		printf("Digite o valor %d do vetor B: ", count);
+		scanf("%d", &vet2[i]);
+	}
+
+	for (int i = 0; i < 3; ++i)
+	{
+		vet3[i] = vet1[i] - vet2[i];
+	}
+	printf("\nO vetor C definido como C = A-B é: (");
+
+	for (int i = 0; i < 3; ++i)
+	{
+		printf("%d,", vet3[i]);
+	}
+	printf(")\n");
+
+
+	return 0;
+}
+
+
+-- Exercicio 11
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int v0[5] = {0};
+	int v1[5] = {0};
+	int v2[5] = {0};
+	int count = 1;
+
+	printf("<<< Pares e ímpares >>>\n\n");
+
+	for (int i = 0; i < 5; ++i)
+	{
+		printf("Digite o valor %d: ", count++);
+		scanf("%d",&v0[i]);
+	}
+
+	for (int i = 0; i < 5; ++i)
+	{
+		if (v0[i]%2 == 0)
+		{
+			v2[i] = v0[i];
+		}
+		else if (v0[i]%2 == 1)
+		{
+			v1[i] = v0[i];	
+		}
+	}
+
+	printf("Ímpares: ");
+
+	for (int i = 0; i < 5; ++i)
+	{
+		if (v1[i] > 0)
+		{	
+			printf("%d ", v1[i]);
+		}
+	}
+	
+	printf("\n");
+
+	printf("Pares: ");
+	for (int i = 0; i < 5; ++i)
+	{
+		if (v2[i] > 0)
+		{	
+			printf("%d ", v2[i]);
+		}
+	}
+	
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 12
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int bolinhas[4] = {0};
+	float soma = 0;
+	float prob[4] = {0};
+
+	printf("<<< PROBABILIDADE >>>\n\n");
+
+	printf("Digite a quantidade de bolinhas: \n");
+
+	for (int i = 0; i < 4; ++i)
+	{
+		if (i == 0)
+		{
+			printf("Verde: ");
+			scanf("%d", &bolinhas[i]);
+		}
+		if (i == 1)
+		{
+			printf("Azul: ");
+			scanf("%d", &bolinhas[i]);	
+		}
+		if (i == 2)
+		{
+			printf("Amarelo: ");
+			scanf("%d", &bolinhas[i]);
+		}
+		if (i == 3)
+		{
+			printf("Vermelho: ");
+			scanf("%d", &bolinhas[i]);
+		}
+		soma += bolinhas[i];
+	}
+
+	int maior = bolinhas[0];
+
+	for (int i = 0; i < 4; ++i)
+	{
+		prob[i] = ((bolinhas[i]*100)/soma);
+
+		if (maior < bolinhas[i])
+		{
+			maior = bolinhas[i];
+		}
+	}
+
+
+	printf("\nProbabilidades:\n");
+
+	for (int i = 0; i < 4; ++i)
+	{
+		if (i == 0)
+		{
+			if (bolinhas[i] == maior)
+			{
+				printf("Verde: %.1f << MAIOR PROBABILIDADE\n", prob[i]);
+			}
+			else
+			{
+				printf("Verde: %.1f\n", prob[i]);
+			}	
+		}
+		if (i == 1)
+		{
+			if (bolinhas[i] == maior)
+			{
+				printf("Azul: %.1f << MAIOR PROBABILIDADE\n", prob[i]);
+			}
+			else
+			{
+				printf("Azul: %.1f\n", prob[i]);
+			}
+		}
+		if (i == 2)
+		{
+			if (bolinhas[i] == maior)
+			{
+				printf("Amarelo: %.1f << MAIOR PROBABILIDADE\n", prob[i]);
+			}
+			else
+			{
+				printf("Amarelo: %.1f\n", prob[i]);
+			}
+		}
+		if (i == 3)
+		{
+			if (bolinhas[i] == maior)
+			{
+				printf("Vermelho: %.1f << MAIOR PROBABILIDADE\n", prob[i]);
+			}
+			else
+			{
+				printf("Vermelho: %.1f\n", prob[i]);
+			}		
+		}
+	}
+
+	printf("\n");
+
+
+	return 0;
+}
+
+
+-- Exercicio 13
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int vetor[5] = {0};
+	short int c = 1;
+
+	printf("<< Zerando os negativos >>>\n\n");
+
+	for (int i = 0; i < 5; ++i)
+	{
+		printf("Entre com o valor %d: ", c++);
+		scanf("%d", &vetor[i]);
+
+		if (vetor[i] < 0)
+		{
+			vetor[i] = 0;
+		}
+	}
+
+	printf("\nZerando os negativos se tem: ");
+
+	for (int i = 0; i < 5; ++i)
+	{
+		printf("%d ", vetor[i]);
+	}
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 14
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct 
+{
+	unsigned int numero;
+	char classe;
+	double cra;
+	
+}Estudante;
+
+int main()
+{
+	Estudante alunos[1] = {0, '\0', 0};
+	short int quant_alunos = 0;
+
+	printf("<<< Universidade >>>\n\n");
+
+	printf("Quantos alunos serão cadastrados? ");
+	scanf("%d", &quant_alunos);
+
+	if (quant_alunos <= 10000)
+	{
+		Estudante alunos[quant_alunos];
+
+		for (int i = 0; i < quant_alunos; ++i)
+		{
+			printf("\n\nEntre com o numero do aluno: ");
+			scanf("%u", &alunos[i].numero);
+			getchar();
+			printf("Entre com a classe social do aluno %u: ", alunos[i].numero);
+			scanf("%c", &alunos[i].classe);
+			printf("Entre com o CRA do aluno %u: ", alunos[i].numero);
+			scanf("%lf", &alunos[i].cra);
+		}
+
+		printf("\n==== Alunos Cadastrados ====\n");
+
+		for (int i = 0; i < quant_alunos; ++i)
+		{
+			printf("Numero: %u  Classe Social: %c  CRA: %.2f\n", alunos[i].numero, alunos[i].classe, alunos[i].cra);
+		}
+
+	}
+	else if (quant_alunos > 10000)
+	{
+		printf("ERRO!!!! Numero maximo de alunos é 10000!!!!!!\n");
+	}
+
+	return 0;
+}
+
+
+-- Exercicio 15
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int valores[8] = {0};
+	int iguais[8] = {0};
+	short int count = 1;
+
+	printf("\n<<< VALORES IGUAIS >>>\n\n");
+
+	for (int i = 0; i < 8; ++i)
+	{
+		printf("Entre com o numero %d: ", count++);
+		scanf("%d",&valores[i]);
+	}
+
+	for (int i = 0; i < 8; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			if ((valores[i] == valores[j]) && (i != j) && (iguais[i] != -1))
+			{				
+				iguais[i]++;
+				iguais[j]--;
+			}
+	
+		}
+	}
+
+	printf("\nValores repitidos: ");
+
+	for (int i = 0; i < 8; ++i)
+	{
+		if (iguais[i] > 0)
+		{
+			printf("%d ", valores[i]);
+		}
+	}
+
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 16
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+	int vetor[8] = {0};
+	int repetidos[8] = {0};
+	int vezes[8] = {0};
+	int cont = 0;
+	short int count = 1;
+
+	printf("\n<<< Valores iguais >>>\n\n");
+
+	for (int i = 0; i < 8; ++i)
+	{
+		printf("Entre com o numero %d: ", count++);
+		scanf("%d", &vetor[i]);
+	}
+
+
+	for (int i = 0; i < 8; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			if ((vetor[i] == vetor[j]) && (i != j) && (repetidos[i] != -1))
+			{
+				repetidos[i]++;
+				repetidos[j]--;
+				cont++;
+			}
+			vezes[i] = cont;
+		}
+		cont = 0;
+	}
+
+	printf("\nValores repetidos: \n");
+
+	for (int i = 0; i < 8; ++i)
+	{
+		vezes[i]++;
+		if (repetidos[i] > 0)
+		{
+			printf("O valor %d aparece %d vezes\n",vetor[i], vezes[i]);
+		}
+	}
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ << LISTA STRINGS SEM string.h >>
+
+
+-- Exercicio 1
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	unsigned char a = 28;
+
+	printf("\n Tabela ASCII \n\n");
+
+	for (int i = 28; i < 256; ++i)
+	{
+		printf("Caracter: %c 	Valor Decimal: %d\n", a, a);
+		a++;
+	}
+
+	return 0;
+}
+
+
+-- Exercicio 2
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	char nome[50];
+	char a;
+	int posicao = 0;
+
+	setbuf(stdin, NULL);
+
+	printf("\n<<< VETOR DE Char >>>\n\n");
+
+	printf("Digite o nome: ");
+
+	a = getchar();
+
+	while(a != '\n')
+	{
+		nome[posicao] = a;
+		posicao++;
+		a = getchar();
+	}
+
+	printf("\nO nome digitado é: ");
+
+	for (int i = 0; i < posicao; ++i)
+	{
+		printf("%c", nome[i]);
+	}
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 3
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int main()
+{
+	char nome[50];
+	char a;
+	int posicao = 0;
+
+	setbuf(stdin, NULL);
+
+	printf("\n<<< VETOR DE Char >>>\n\n");
+
+	printf("Digite o nome: ");
+
+	a = getchar();
+
+	while(a != '\n')
+	{
+		nome[posicao] = a;
+		posicao++;
+		a = getchar();
+	}
+
+	printf("\nO nome digitado é: ");
+
+	for (int i = 0; i < posicao; ++i)
+	{
+		nome[i] = toupper(nome[i]);
+		printf("%c", nome[i]);
+	}
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 4
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	char nome1[50];
+	char nome2[50];
+	char a;
+	short int contador = 0;
+	int posicao = 0;
+
+	setbuf(stdin, NULL);
+
+	printf("\n<<< COMPARA NOMES >>>\n\n");
+
+	printf("Digite o nome 1: ");
+
+	a = getchar();
+
+	while(a != '\n')
+	{
+		nome1[posicao] = a;
+		posicao++;
+		a = getchar();
+	}
+
+	posicao = 0;
+	setbuf(stdin, NULL);
+
+	printf("Digite o nome 2: ");
+
+	a = getchar();
+
+	while(a != '\n')
+	{
+		nome2[posicao] = a;
+		posicao++;
+		a = getchar();
+	}
+
+	for (int i = 0; i < posicao; ++i)
+	{
+		if (nome1[i] != nome2[i])
+		{
+			contador++;
+		}
+	}
+	
+	if (contador > 0)
+	{
+		printf("Os nomes são diferentes\n");
+	}
+	else
+	{
+		printf("Os nomes são iguais\n");
+	}
+
+	return 0;
+}
+
+
+-- Exercicio 5
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int main()
+{
+	char nome1[50];
+	char nome2[50];
+	char a;
+	short int contador = 0;
+	int posicao = 0;
+
+	setbuf(stdin, NULL);
+
+	printf("\n<<< COMPARA NOMES >>>\n\n");
+
+	printf("Digite o nome 1: ");
+
+	a = getchar();
+
+	while(a != '\n')
+	{
+		nome1[posicao] = a;
+		posicao++;
+		a = getchar();
+	}
+
+	posicao = 0;
+	setbuf(stdin, NULL);
+
+	printf("Digite o nome 2: ");
+
+	a = getchar();
+
+	while(a != '\n')
+	{
+		nome2[posicao] = a;
+		posicao++;
+		a = getchar();
+	}
+	
+	for (int i = 0; i < posicao; ++i)
+	{
+		nome1[i] = tolower(nome1[i]);
+		nome2[i] = tolower(nome2[i]);
+	}
+
+
+	for (int i = 0; i < posicao; ++i)
+	{
+		if (nome1[i] != nome2[i])
+		{
+			contador++;
+		}
+	}
+	
+	if (contador > 0)
+	{
+		printf("Os nomes são diferentes\n");
+	}
+	else
+	{
+		printf("Os nomes são iguais\n");
+	}
+
+	return 0;
+}
+
+
+-- Exercicio 6
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	char nome[40];
+	char sobrenome[40];
+	char a;
+	int posicao = 0;
+
+	setbuf(stdin, NULL);
+
+	printf("\n<<< VETOR DE Char >>>\n\n");
+
+	printf(" Digite o nome e sobrenome: ");
+
+	a = getchar();
+
+	while(a != ' ')
+	{
+		nome[posicao] = a;
+		posicao++;
+		a = getchar();
+	}
+
+	setbuf(stdin, NULL);
+
+	a = getchar();
+	posicao = 0;
+	while(a != '\n')
+	{
+		sobrenome[posicao] = a;
+		posicao++;
+		a = getchar();
+	}
+
+	printf("\n Nome: ");
+
+	for (int i = 0; i < posicao; ++i)
+	{
+		printf("%c", nome[i]);
+	}
+	
+	printf("\n Sobrenome: ");
+	
+	for (int i = 0; i < posicao; ++i)
+	{
+		printf("%c", sobrenome[i]);
+	}
+
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 7
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	char nome[50];
+	char a;
+	int posicao = 0;
+
+	setbuf(stdin, NULL);
+
+	printf("\n<<< VETOR DE Char >>>\n\n");
+
+	printf("Digite o nome: ");
+
+	a = getchar();
+
+	while(a != '\n')
+	{
+		nome[posicao] = a;
+		posicao++;
+		a = getchar();
+	}
+	
+	printf("\nO nome digitado é: %s\n", nome);
+
+	return 0;
+}
+/*
+*	No printf() com o %s ele ira imprimir ate encontrar o fim da string,  
+* que é identificado com o '\0'.
+*
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<< LISTA DE STRING COM string.h >>
+
+
+-- Exercicio 1
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+	
+	char nome[50];
+
+	printf("\n<<< Vetor de Char >>>\n\n");
+
+	printf("Digite o nome: ");
+	gets(nome);
+
+	printf("O nome digitado é: %s\n", nome);
+
+	return 0;
+}
+
+
+-- Exercicio 2
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+	
+	char nome[50];
+
+	printf("\n<<< Vetor de Char >>>\n\n");
+
+	printf("Digite o nome: ");
+	gets(nome);
+
+	for (int i = 0; i < sizeof(nome); ++i)
+	{
+		nome[i] = toupper(nome[i]);
+	}
+	printf("O nome digitado é: %s\n", nome);
+
+	for (int i = 0; i < sizeof(nome); ++i)
+	{
+		nome[i] = tolower(nome[i]);
+	}
+	printf("O nome digitado é: %s\n", nome);
+	return 0;
+}
+
+
+-- Exercicio 3
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+	char nome1[50];
+	char nome2[50];
+
+	printf("\n<<< COMPARA NOMES >>>\n\n");
+
+	printf("Digite o nome 1: ");
+	gets(nome1);
+
+	printf("\nDigite o nome 2: ");
+	gets(nome2);
+
+	if (strcmp(nome1, nome2) != 0)
+	{
+		printf("Os nomes digitados são diferentes\n");
+	}
+	else
+	{
+		printf("Os nomes digitados são iguais\n");
+	}
+	return 0;
+}
+
+
+-- Exercicio 4
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+	char nome1[50];
+	char nome2[50];
+
+	printf("\n<<< COMPARA NOMES >>>\n\n");
+
+	printf("Digite o nome 1: ");
+	gets(nome1);
+
+	printf("\nDigite o nome 2: ");
+	gets(nome2);
+
+
+	for (int i = 0; i < sizeof(nome1); ++i)
+	{
+		nome1[i] = tolower(nome1[i]);
+		nome2[i] = tolower(nome2[i]);
+	}
+
+	if (strcmp(nome1, nome2) != 0)
+	{
+		printf("Os nomes digitados são diferentes\n");
+	}
+	else
+	{
+		printf("Os nomes digitados são iguais\n");
+	}
+	return 0;
+}
+
+
+-- Exercicio 5
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+	char nome[40];
+	char sobrenome[40] = {'\0'};
+
+	printf("\n<<< Vetor de Char >>>\n\n");
+
+	printf("Digite o nome e sobrenome: ");
+	gets(nome);
+
+	int a = 0;
+	int cont = 0;
+
+	while(nome[a] != ' ')
+	{
+		cont++;
+		a++;
+	}
+	cont++;
+
+	int j = 0;
+	
+	for (int i = cont; i < sizeof(nome); ++i)
+	{
+		sobrenome[j] = nome[i];
+		j++;
+		nome[i] = '\0';
+	}
+
+	printf("\nNome: %s\n", nome);
+	printf("Sobrenome: %s\n", sobrenome);
+	return 0;
+}
+
+
+-- Exercicio 6
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+	char nome[50];
+	short int cont = 1;
+
+	printf("\n<<< SEPARA LETRAS >>>\n\n");
+
+	printf("Digite o nome: ");
+	gets(nome);
+
+	int i = 0;
+
+	while(nome[i] != '\0')
+	{
+		printf("%da letra: %c\n", cont++, nome[i]);
+		i++;
+	}
+
+	return 0;
+}
+
+
+-- Exercicio 7
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+	char palavra[50];
+	char vogais[] = {"aeiouAEIOU"};
+	int j;
+
+	printf("\n<<< Sem Vogais >>>\n\n");
+
+	printf("Digite a string: ");
+	gets(palavra);
+
+	printf("\nSaída sem vogais: ");
+
+	for (int i = 0; i < strlen(palavra); ++i)
+	{
+		for (j = 0; j < strlen(vogais); ++j)
+		{
+			if (palavra[i] == vogais[j])
+			{
+				break;
+			}
+		}
+
+		if (j == strlen(vogais))
+		{
+			printf("%c", palavra[i]);
+		}
+
+	}
+
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 8
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+typedef struct 
+{
+	char nome[50];
+	char cpf[11];
+	char rg[9];
+	char endereco[60];
+	char cidade[50];
+	char estado[2];
+
+	char cep[8];
+
+} Dados;
+
+int main()
+{
+	
+	Dados pessoa;
+
+	printf("Digite seu nome: ");
+	gets(pessoa.nome);
+
+	printf("\nDigite seu CPF: ");
+	gets(pessoa.cpf);
+
+	printf("\nDigite seu RG: ");
+	gets(pessoa.rg);
+
+	printf("\nDigite seu endereço: ");
+	gets(pessoa.endereco);
+
+	printf("\nDigite sua Cidade: ");
+	gets(pessoa.cidade);
+
+	printf("\nDigite seu Estado (Sigla): ");
+	gets(pessoa.estado);
+
+	printf("\nDigite seu CEP: ");
+	gets(pessoa.cep);
+
+
+	puts("\n\n\t D E C L A R A Ç Ã O");
+	printf(" Eu, %s, portador(a) do RG %s e do CPF %s,\n", pessoa.nome, pessoa.rg, pessoa.cpf);
+
+	printf("residente a %s, %s- %s,", pessoa.endereco, pessoa.cidade, pessoa.estado);
+
+	printf("\nCEP %s, venho por meio desta declarar que vou estudar para as provas.\n", pessoa.cep);
+
+	return 0;
+}
+
+
+-- Exercicio 9
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+	char contrario[40];
+
+	printf("\n<<< INVERTETNDO >>>\n\n");
+
+	printf("Digite a string: ");
+	gets(contrario);
+
+	printf("\nSaída invertida: ");
+	for (int i = (strlen(contrario) - 1); i >= 0; --i)
+	{
+		printf("%c", contrario[i]);
+	}
+	printf("\n");
+	return 0;
+}
+
+
+-- Exercicio 10
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{	
+	char palavra[50];
+	char palindromo[50];
+	int j = 0;
+
+	printf("\n<<< PALINDROMO >>\n\n");
+
+	printf("Digite a palavra: ");
+	gets(palavra);
+
+	for (int i = 0; i < strlen(palavra); ++i)
+	{
+		palavra[i] = tolower(palavra[i]);
+	}
+
+	for (int i = (strlen(palavra) - 1); i >= 0; --i)
+	{
+		palindromo[j] = palavra[i];
+		j++;
+	}
+	if ((strcmp(palavra, palindromo)) == 0)
+	{
+		printf("\nA palavra é um palindromo\n");
+	}
+	else
+	{
+		printf("\nA palavra não é um palindromo\n");
+	}
+
+	return 0;
+}
+
+
+-- Exercicio 11
+
+a)	A função do programa é receber uma senha digitada pelo usuario e comparar se a senha digitada é a correta,
+caso seja ele concede acesso, caso nao seja o acesso é negado.
+
+b)	Na saída é mostrado " Senha Correta ", pass recebe 1 e depois é mostrado " Acesso Liberado ".
+
+c)	Na primeira e na segunda tentativa as saidas vao ser " Senha Incorreta " e " Acesso Negado ".
+Na terceira a saída é " Senha incorreta " e " Acesso Liberado ".
+
+d)	No terceiro caso. O problema ocorre devido ao estouro do limite de caracteres do buff.
+
+
+-- Exercicio 12
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+ 	char buff[5];
+ 	int pass = 0;
+ 
+ 	printf("\n Entre com a senha de 4 digitos: ");
+ 	fgets(buff, 6, stdin);
+
+ 	buff[strcspn(buff, "\n")] = '\0';
+ 
+ 	if (strcmp(buff, "1234")) 
+ 	{
+		 printf ("\n Senha Errada");
+ 	}
+ 	else 
+ 	{
+ 		printf ("\n Senha Correta");
+ 		pass = 1;
+ 	}
+ 	if (pass) 
+ 	{
+ 		/* O usuário acertou a senha, poderá continuar*/
+ 		printf ("\n Acesso liberado\n");
+ 	} 
+ 	else 
+ 	{
+ 		printf ("\n Acesso negado \n");
+ 	}
+
+ 	return 0;
+} 

@@ -1,0 +1,519 @@
+
+	<< LISTA DE PONTEIROS >>
+
+
+-- Exercicio 1
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int val[5] = {2,4,5,8,10};
+	unsigned int endereco_val;
+
+	endereco_val = &val[2];
+
+	printf("<< Alterando Valor >>\n");
+
+	printf("Entre com o numero 6: ");
+	scanf("%d", endereco_val);
+
+	printf("Valor Alterado para %d\n", val[2]);
+
+	return 0;
+}
+
+
+-- Exercicio 2
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int a = 40;
+	int *p;
+	p = &a;
+
+
+	//A)
+
+	printf("Endereço de a com &a: %u\n", &a);
+	printf("Endereço de a com p: %u\n\n", p);
+	
+	//B)
+
+	printf("Mude o valor de a: ");
+	scanf("%d", p);	
+
+	//C)
+
+	int val[5] = {2,4,5,8,10};
+	int *pval = NULL;
+
+	pval = &val[4];
+
+	printf("\nMude o valor 10 do verto val para 20: ");
+	scanf("%d", pval);
+
+	//D)
+
+	// O valor do ponteiro 'p' é o endereço de 'a'
+	// O valor do ponteiro 'pval' é a posiçao [4] no vetor 'val'
+	// O valor de 'a' passa a ser o valor inserido
+	// O valor de val[4] passa a ser 20
+
+
+
+	return 0;
+}
+
+
+-- Exercicio 3
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int val[5] = {2,4,5,8,10};
+	int *pval = NULL;
+	
+
+	printf("<< Mostrando Valor >>\n");
+
+	printf("Printando com ponteiros\n");
+	for (int i = 0; i < 5; ++i)
+	{
+		pval = &val[i];
+		printf("%d\n", *pval);
+	}
+
+	// O ponteiro *pval está apontando para a posição [4] do vetor 'val'
+	// O valor de val[0] é 2
+	// O valor de val[1] é 4
+	// O valor de val[2] é 5
+	// O valor de val[3] é 8
+	// O valor de val[4] é 10
+
+	return 0;
+}
+
+
+-- Exercicio 4
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int val[5] = {2,4,5,8,10};
+	int *pval = NULL;
+	
+	for (int i = 0; i < 5; ++i)
+	{
+		pval = &val[i];
+
+		*pval -= 1;
+		//printf("%d\n", val[i]);
+	}
+
+
+	return 0;
+}
+
+
+-- Exercicio 5
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+	int v1 = 1;
+	double v2 = 2;
+	char c = 'a';
+	int *p_v1;
+ 	double *p_v2;
+ 	char *p_c;
+
+ 	p_v1 = &v1;
+ 	p_v2 = &v2;
+	p_c = &c;
+
+ 	printf("\nEndereço de v1 %u", p_v1);
+	printf("\nEndereço de v2 %u", p_v2); 
+ 	printf("\nEndereço de c %u", p_c);
+ 	printf("\nEndereço+1 de v1 %u", p_v1+1);
+ 	printf("\nEndereço+1 de v2 %u", p_v2+1);
+ 	printf("\nEndereço+1 de c %u", p_c+1);
+ 	printf("\nEndereço-1 de v1 %u", p_v1-1);
+ 	printf("\nEndereço-1 de v2 %u", p_v2-1); 
+ 	printf("\nEndereço-1 de c %u\n", p_c-1);
+
+
+ 	// Endereço de v1: 3468521472 
+ 	// Endereço de v2: 3468521560 
+ 	// Endereço de c: 3468521559
+ 	// Endereço + 1 de v1: 3468521576 
+ 	// Endereço + 1 de v2: 34685215568
+ 	// Endereço + 1 de c: 3468521560
+ 	// Endereço - 1 de v1: 3468521568
+ 	// Endereço - 1 de v2: 3468521552
+ 	// Endereço - 1 de c: 3468521558
+
+	return 0;
+}
+
+
+-- Exercicio 7
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+	char nome[] = "José Augusto";
+	char *pnome = NULL;
+
+	for (int i = 0; i < strlen(nome); ++i)
+	{
+		pnome = &nome[i];
+		printf("%c", *pnome);
+	}
+	
+	printf("\n");
+
+	return 0;
+}
+
+
+-- Exercicio 8
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int a = 0;
+	double b = 0;
+	void *pointer = NULL;
+
+	pointer = &a;
+
+	printf("Digite o primeiro valor: ");
+	scanf("%d", (int *)pointer);
+
+	pointer = &b;
+
+	printf("\nDigite o segundo valor: ");
+	scanf("%lf", (double *)pointer);
+
+	pointer = &a;
+
+	printf("\nPrimeiro numero lido é: %d\n", *(int *)pointer);
+
+	pointer = &b;
+
+	printf("Segundo numero lido é: %.2f\n", *(double *)pointer);
+
+
+	return 0;
+}
+
+
+-- Exercicio 9
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	double vetor[10] = {1.5, 2.52, 45.5, 7.9, 8.2, 6.4, 9.1, 8.1, 79.4, 35.2};
+
+	for (int i = 0; i < 10; ++i)
+	{
+		printf(" %.2f\n", *(vetor+i));
+
+	}
+
+	return 0;
+}
+
+
+-- Exercicio 10
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int vetor[10] = {1, 2, 123, 74, 54, 6, 45, 89, 974, 1035};
+
+	for (int i = 0; i < 10; ++i)
+	{
+		printf(" %d\n", *(vetor+i));
+
+	}
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<< LISTA DE ALOCAÇÃO DINAMICA >>
+
+-- Exercicio 1
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	double *produtos;
+	int n,i;
+
+	printf("Informe o número de produtos: ");
+	scanf("%d",&n);
+
+	// é necessário usar o comando malloc para alocar a memória
+	produtos = (double *)malloc(n*sizeof(double));
+
+	for (i = 0; i < n; i++){
+ 		printf("Informe o valor do produto %d R$:",i+1);
+		 scanf("%lf", &produtos[i]);
+	}
+
+	printf("\nProdutos cadastrados\n");
+
+	for (i = 0; i < n; i++){
+		 printf("Produto %d - R$: %f\n",i+1, produtos[i]);
+	}
+
+	// ao terminar de usar o vetor, devemos liberar a memória
+	free(produtos);
+
+	return 0;
+}
+
+O valor de 'n' no programa serve para saber quantas variaveis vao existir para a alocação de espaço
+O sizeof(double) dentro do malloc mostra qual o tipo de variavel, para saber quantos bytes por variavel será alocado.
+
+
+
+-- Exercicio 2
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int *numeros;
+
+	numeros = (int *)malloc(5*sizeof(int));
+
+	for (int i = 0; i < 5; ++i)
+	{
+		printf("Digite o numero %d: ", i+1);
+		scanf("%d", &numeros[i]);
+	}
+
+	for (int i = 0; i < 5; ++i)
+	{
+		printf("Numero %d digitado: %d\n", i+1, numeros[i]);
+	}
+	
+	free(numeros);
+	
+	return 0;
+}
+
+
+
+-- Exercicio 3
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int numeros = 0;
+	int *ponteiro;
+
+	printf("Digite quantos numeros vao ser inseridos: ");
+	scanf("%d", &numeros);
+
+	ponteiro = (int *)malloc(numeros * sizeof(int));
+
+	for (int i = 0; i < numeros; ++i)
+	{
+		printf("Digite o numero %d: ", i+1);
+		scanf("%d", &ponteiro[i]);
+	}
+
+	printf("Pares:\n");
+	for (int i = 0; i < numeros; ++i)
+	{
+		if (ponteiro[i]%2 == 0)
+		{
+			printf("%d\n", ponteiro[i]);
+		}
+	}
+
+	printf("Impares:\n");
+	for (int i = 0; i < numeros; ++i)
+	{
+		if (ponteiro[i]%2 != 0)
+		{
+			printf("%d\n", ponteiro[i]);
+		}
+	}
+
+	free(ponteiros);
+
+	return 0;
+}
+
+
+
+-- Exercicio 4
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct
+{
+	int x;
+	int y;
+
+} Pontos;
+
+int main()
+{
+	int n = 0;
+
+	Pontos *coord;
+
+	printf("Quantos pontos deseja digitar: ");
+	scanf("%d", &n);
+
+	for (int i = 0; i < n; ++i)
+	{
+		printf("Digite o ponto X %d: ", i+1);
+		scanf("%d", &coord[i].x);
+
+		printf("Digite o ponto Y %d: ", i+1);
+		scanf("%d", &coord[i].y);
+		printf("\n");
+	}
+
+
+	printf("Pontos digitados: ");
+
+	for (int i = 0; i < n; ++i)
+	{
+		printf("(%d,%d); ", coord[i].x, coord[i].y);
+	}
+
+	printf("\n");
+	
+	return 0;
+}
+
+
+
+-- Exercicio 5
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct
+{
+	int x;
+	int y;
+
+} Pontos;
+
+int main()
+{
+	int n = 0;
+
+	Pontos *coord = NULL;
+	Pontos *maior = NULL;
+	Pontos *menor = NULL;
+	Pontos *esquerda = NULL;
+	Pontos *direita = NULL;
+
+	printf("Quantos pontos deseja digitar: ");
+	scanf("%d", &n);
+
+	coord = (Pontos *)malloc(n * sizeof(Pontos));
+
+	for (int i = 0; i < n; ++i)
+	{
+		printf("Digite o ponto X %d: ", i+1);
+		scanf("%d", &coord[i].x);
+
+		printf("Digite o ponto Y %d: ", i+1);
+		scanf("%d", &coord[i].y);
+		printf("\n");
+	}
+
+	esquerda = coord;
+	direita = coord;
+	maior = coord;
+	menor = coord;
+
+	for (int i = 0; i < n; i++)
+	{
+		if (coord[i].x < esquerda->x)
+		{
+			esquerda = &coord[i].x;
+		}
+		if (coord[i].x > direita->x)
+		{
+			direita = &coord[i].x;
+		}
+		if (coord[i].y < menor->y)
+		{
+			menor = &coord[i].y;
+		}
+		if (coord[i].y > maior->y )
+		{
+			maior = &coord[i].y;	
+		}
+	}
+
+	printf("Pontos digitados: ");
+
+	for (int i = 0; i < n; ++i)
+	{
+		printf("(%d,%d); ", coord[i].x, coord[i].y);
+	}
+
+	printf("\n");
+
+	printf("O ponto mais a esquerda é: %d\n", esquerda->x);
+	printf("O ponto mais a direita é: %d\n", direita->x);
+	printf("O ponto mais a acima é: %d\n", maior->y);
+	printf("O ponto mais a baixo é: %d\n", menor->y);
+
+	printf("\n");
+	
+	free(coord);
+	return 0;
+}
+
